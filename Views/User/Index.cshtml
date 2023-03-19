@@ -1,0 +1,11 @@
+﻿@model GizemAktas.Models.UserLoginModel
+@{
+    ViewData["Title"] = "User Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Girişine Hoşgeldiniz</h1>
+<p>Kullanıcı Adı : <strong style="font-weight:bold">@Model.UserName</strong> </p>
+<p>Şifre : <strong style="font-weight:bold">@Model.Password</strong> </p>
+<p>Rol : <strong style="font-weight:bold">@Model.Role</strong> </p>
+<a href="~/Account/Login" class="btn btn-danger">Çıkış Yap</a>

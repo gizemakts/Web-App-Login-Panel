@@ -1,0 +1,78 @@
+﻿@model GizemAktas.Models.UserLoginModel
+@{
+    ViewData["Title"] = "Login Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+
+    <div align="center">
+
+        <div class="editor-label">
+            <label>Kullanıcı Adı</label>
+        </div>
+
+        <div class="editor-field" style="width:200px">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            <label>Şifre</label>
+        </div>
+
+
+        <div class="editor-field" style="width:200px">
+
+            @Html.EditorFor(model => model.Password, new
+            {
+                htmlAttributes = new
+                {
+            @class = "form-control",
+            placeholder = "Password",
+            value = "FakePSW",
+            type = "Password",
+            id = "myInput"
+       }
+            })
+
+            @Html.ValidationMessageFor(model => model.Password)
+            <input type="checkbox" onclick="myFunction()"> Show Password
+        </div>
+
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+
+        <div class="checkbox mb-3">
+        </div>
+        <button class="btn btn-lg btn-danger btn-block" style="width:200px" type="submit">Giriş Yap</button>
+        <br>
+
+
+        <table border="2" cellspacing="7" cellpadding="7">
+            <tr>
+                <td>Kullanıcı Adı: admin</td>
+                <td>Şifre: admin</td>
+            </tr>
+            <tr>
+                <td>Kullanıcı Adı: system</td>
+                <td>Şifre: system</td>
+            </tr>
+            <tr>
+                <td>Kullanıcı Adı: user</td>
+                <td>Şifre: user</td>
+            </tr>
+        </table>
+    </div>
+}
+
